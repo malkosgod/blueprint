@@ -1,0 +1,383 @@
+/*
+ * General Formatting
+ */
+
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%; 
+}
+
+/* div {
+  margin: 0;
+  padding: 0;
+} */
+
+/*
+ * Sidebar
+ */
+
+.main-row {
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar {
+  margin-top: -15px;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto; 
+  border-right: 1px solid #eee;
+  background:#ffffff;
+}
+
+.nav-tabs {
+  /* 20px padding + 1px border */
+  /* margin-right: 0;  */
+  margin-bottom: -20px;
+  /* margin-left: -30px; */
+  padding: -7px;
+  text-align: center;
+  background: #ffffff;
+  align-items: center;
+
+}
+.nav-tabs > li {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.nav-tabs > a {
+  padding-right: 10px;
+  padding-left: 10px;
+  background:#ffffff;
+  float: right;
+}
+.nav-tabs > .active > a,
+.nav-tabs > .active > a:hover,
+.nav-tabs > .active > a:focus {
+  color: #fff;
+  background-color: #ffffff;
+}
+
+.tabIcon {
+  margin-right: 5px;
+  margin-left: -2px;
+}
+
+/*
+ * Main content
+ */
+
+.main {
+  padding: 0;
+}
+
+/*
+ * "Loading" modal
+ */
+
+#loading-modal {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: rgba(50, 50, 50, 0.9);
+}
+
+#loading-modal  h1 {
+  text-align: center; 
+  margin-top: 30%;
+  color: #fff;
+}
+
+.allWall {
+  margin-left: 30px;
+  margin-bottom: 10px;
+}
+
+/*
+ * Design
+ */
+
+#viewer {
+  display: none;
+}
+
+#floorplanner {
+  display: none;
+}
+
+#add-items {
+  display: none;
+  padding: 20px;
+  overflow-y: auto; 
+}
+
+#main-controls {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 0;  
+}
+
+#camera-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 0;
+  padding: 0 20px;  
+  text-align: right;
+}
+
+#floorplanner-controls {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 20px 0;
+  padding: 0 20px; 
+  width: 100%;
+}
+
+#draw-walls-hint {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.50);
+  color: #ffffff;
+  padding: 5px 10px;
+  z-index: 10;
+  display: none;
+}
+
+.icon-container {
+  /* padding: 1px; */
+  float: left;
+}
+
+[class*="i-"] {
+  display: block;
+}
+
+[class*="i-"]::before {
+  content: '';
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-background-size: contain;
+}
+
+/* TOOLTIPS */
+.btn-default {
+  position: relative;
+  display: inline-block;
+  /* border-bottom: 1px dotted black; */
+}
+
+.bottom {
+  border-radius: 20px;
+}
+
+.btnRoom {
+  border-radius: 10px;
+}
+
+.btn-default .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: -35px;
+  left: -105%;
+}
+
+.btn-default:hover .tooltiptext {
+  visibility: visible;
+}
+
+.btn-sm {
+  position: relative;
+  display: inline-block;
+  /* border-bottom: 1px dotted black; */
+}
+
+.btn-sm .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 35px;
+  left: -105%;
+}
+
+.btn-sm:hover .tooltiptext {
+  visibility: visible;
+}
+
+.btn-file {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20%;
+}
+
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  cursor: inherit;
+  display: block;
+}
+
+.btn-file:hover .tooltiptext {
+  visibility: visible;
+}
+
+.btnRender {
+  position: absolute;
+  right: 0;
+  text-align: right;
+  margin-top: 10px;
+  margin-right: 10px;
+  border-radius: 20%;
+}
+.btnRightBar {
+  position: absolute;
+  right: -0.1%;
+  text-align: right;
+  margin-top: 100px;
+  padding: 2px;
+  border-right-color: #ffffff;
+  border: #ffffff;
+}
+
+  .add-item {
+    cursor: pointer;
+  }
+
+  .col-form-label {
+    font-size: 30px;
+    float: left;
+  }
+
+  .row-offcanvas-right {
+    position: relative;
+    -webkit-transition: all 3s ease-out;
+    -moz-transition: all 3s ease-out;
+    transition: all 3s ease-out;
+    background: white;
+  }
+
+  .row-offcanvas-right
+  #rightbar{
+    right: -30%;
+    display: none;
+    float: right;
+  }
+
+  .row-offcanvas.active
+  #rightbar {
+    right: -5%;
+    display: block;
+    position: fixed;
+    margin:auto;
+  }
+
+  .main.active {
+    right: 20%;
+    position: fixed;
+  }
+
+  .sidebar.active {
+    left: 0%;
+    z-index: 999;
+  }
+
+
+  .btn-right {
+    margin: 10px;
+    width: 100px;
+    font-weight: 700;
+    left: 0;
+    border:rgba(0, 0, 0, 0.50);
+    border-radius: 20%;
+    background: #F2F2F2;
+  }
+
+  /* ICON */ 
+.i-cube {
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 490.452 490.452' style='enable-background:new 0 0 490.452 490.452;' xml:space='preserve'%3E%3Cpath d='M245.226,0L43.836,126.814v236.823l201.39,126.814l201.39-126.814V126.814L245.226,0z M403.465,135.095l-158.239,99.643 L86.987,135.095l158.239-99.643L403.465,135.095z M73.836,162.267l156.39,98.477v184.81l-156.39-98.478V162.267z M260.226,445.555 v-184.81l156.39-98.478v184.81L260.226,445.555z'/%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+.i-rectangle {
+  background-image: url("data:image/svg+xml,%3Csvg width='22px' height='22px' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M42 8H6C4.89543 8 4 8.89543 4 10V38C4 39.1046 4.89543 40 6 40H42C43.1046 40 44 39.1046 44 38V10C44 8.89543 43.1046 8 42 8Z' stroke='black' stroke-width='4'/%3E%3C/svg%3E%0A");
+}
+
+.i-house {
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 491.47 491.47' style='enable-background:new 0 0 491.47 491.47;' xml:space='preserve'%3E%3Cg id='Business_1_Bold_28_'%3E%3Cpath d='M0,268.68h73.023v222.055h345.393V268.68h73.054L245.712,0.735L0,268.68z M387.777,238.056v222.055H103.632V238.056H69.624 L245.712,46.043L421.8,238.056H387.777z'/%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+.i-new-file{
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 502 502' style='enable-background:new 0 0 502 502;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cpath style='fill:%2350A5DC;' d='M356.57,342.707c14.435,0,27.898,4.118,39.32,11.213V105.273L300.617,10H70.783v445.916H292.35 l0.188-0.185c-6.736-11.215-10.615-24.342-10.615-38.377C281.923,376.127,315.343,342.707,356.57,342.707z'/%3E%3Cpath style='fill:%23C7EBFF;' d='M396.288,354.162c-0.131-0.083-0.267-0.16-0.399-0.242c-11.421-7.095-24.885-11.213-39.32-11.213 c-41.226,0-74.647,33.42-74.647,74.646c0,14.035,3.879,27.162,10.615,38.377c0.071,0.119,0.138,0.241,0.21,0.359 C305.844,477.62,329.527,492,356.57,492c41.226,0,74.647-33.42,74.647-74.647C431.216,390.729,417.266,367.376,396.288,354.162z' /%3E%3C/g%3E%3Cg%3E%3Cpath d='M405.889,348.576V105.273c0-2.652-1.054-5.196-2.929-7.071L307.688,2.929C305.813,1.054,303.27,0,300.617,0H70.783 c-5.523,0-10,4.477-10,10v445.916c0,5.523,4.477,10,10,10h216.442C303.083,488.611,328.615,502,356.57,502 c46.674,0,84.646-37.972,84.646-84.646C441.217,389.827,428.102,364.485,405.889,348.576z M80.783,20h215.691l76.158,76.158 h-51.151c-5.522,0-10,4.477-10,10s4.478,10,10,10h64.408v221.789c-9.334-3.451-19.247-5.241-29.319-5.241 c-46.675,0-84.647,37.973-84.647,84.647c0,9.793,1.692,19.45,4.955,28.562H80.783V20z M356.57,482 c-22.766,0-43.43-11.629-55.277-31.107c-6.13-10.077-9.37-21.675-9.37-33.539c0-35.646,29.001-64.647,64.647-64.647 c11.785,0,23.28,3.21,33.334,9.278c0.474,0.355,0.979,0.67,1.513,0.938c18.668,11.975,29.799,32.278,29.799,54.431 C421.217,453,392.217,482,356.57,482z'/%3E%3Cpath d='M394.345,407.354h-27.776v-27.776c0-5.523-4.478-10-10-10s-10,4.477-10,10v27.776h-27.776c-5.522,0-10,4.477-10,10 s4.478,10,10,10h27.776v27.776c0,5.523,4.478,10,10,10s10-4.477,10-10v-27.776h27.776c5.522,0,10-4.477,10-10 S399.868,407.354,394.345,407.354z'/%3E%3Cpath d='M292.56,106.158c0-5.523-4.478-10-10-10h-11.447c-5.522,0-10,4.477-10,10s4.478,10,10,10h11.447 C288.083,116.158,292.56,111.681,292.56,106.158z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+.i-save-file{
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 508 508' style='enable-background:new 0 0 508 508;' xml:space='preserve'%3E%3Cpath style='fill:%232884A9;' d='M425.6,6H390v192c0,9.6-5.6,20-15.6,20H70c-10,0-20-10-20-20V6H22.4C14.4,6,6,10.4,6,18v467.6 c0,7.6,8.8,16.4,16.4,16.4H50V270v-2c0-1.2,0.8-2,2-2h404c1.2,0,2,0.8,2,2v234h32c7.6,0,12-8.4,12-16.4V82.8L425.6,6z'/%3E%3Crect x='54' y='266' style='fill:%2373BADD;' width='400' height='236'/%3E%3Cpath style='fill:%23E8E3E3;' d='M54,6v192c0,7.6,8.4,16,16,16h304.4c7.6,0,11.6-8.4,11.6-16V6H54z'/%3E%3Crect x='282' y='38' style='fill:%232884A9;' width='72' height='144'/%3E%3Cpath style='fill:%23CC9999;' d='M278,184v2h2C278.8,186,278,185.2,278,184z'/%3E%3Cpath d='M490,508H22.4C11.2,508,0,496.8,0,485.6V18C0,6.8,11.6,0,22.4,0h404c1.2,0,2,0.4,2.8,1.2l77.6,78c0.8,0.8,1.2,1.6,1.2,2.8 v404C508,496.8,501.2,508,490,508z M22.4,8C15.6,8,8,12,8,18v467.6C8,492,16,500,22.4,500H490c6,0,10-7.6,10-14.4v-402L424.8,8H22.4 z'/%3E%3Cpath d='M456,506c-2.4,0-4-1.6-4-4V268h-18c-2.4,0-4-1.6-4-4s1.6-4,4-4h22c2.4,0,4,1.6,4,4v238C460,504.4,458.4,506,456,506z'/%3E%3Cpath d='M52,506c-2.4,0-4-1.6-4-4V264c0-2.4,1.6-4,4-4h350c2.4,0,4,1.6,4,4s-1.6,4-4,4H56v234C56,504.4,54.4,506,52,506z'/%3E%3Cpath d='M374.4,220H70c-10.8,0-22-11.2-22-22V6c0-2.4,1.6-4,4-4s4,1.6,4,4v192c0,6.8,7.6,14,14,14h304.4c6,0,9.6-7.2,9.6-14V6 c0-2.4,1.6-4,4-4s4,1.6,4,4v192C392,208.4,386,220,374.4,220z'/%3E%3Cpath d='M158.4,220c-11.2,0-22.4-11.2-22.4-22V6c0-2.4,1.6-4,4-4s4,1.6,4,4v192c0,6.4,8,14,14.4,14c2.4,0,4,1.6,4,4 S160.8,220,158.4,220z'/%3E%3Cpath d='M356,188h-76c-2.4,0-4-1.6-4-4V36c0-2.4,1.6-4,4-4h38c2.4,0,4,1.6,4,4s-1.6,4-4,4h-34v140h68V40h-2c-2.4,0-4-1.6-4-4 s1.6-4,4-4h6c2.4,0,4,1.6,4,4v148C360,186.4,358.4,188,356,188z'/%3E%3Cpath d='M410,324H102c-2.4,0-4-1.6-4-4s1.6-4,4-4h308c2.4,0,4,1.6,4,4S412.4,324,410,324z'/%3E%3Cpath d='M410,388H102c-2.4,0-4-1.6-4-4s1.6-4,4-4h308c2.4,0,4,1.6,4,4S412.4,388,410,388z'/%3E%3Cpath d='M410,452H102c-2.4,0-4-1.6-4-4s1.6-4,4-4h308c2.4,0,4,1.6,4,4S412.4,452,410,452z'/%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+.i-open-file{
+  font-size: small;
+  background-image: url("data:image/svg+xml,%3Csvg width='36px' height='36px' viewBox='0 0 36 36' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' aria-hidden='true' role='img' class='iconify iconify--twemoji' preserveAspectRatio='xMidYMid meet'%3E%3Cpath fill='%23269' d='M0 29a4 4 0 0 0 4 4h24a4 4 0 0 0 4-4V12a4 4 0 0 0-4-4h-9c-3.562 0-3-5-8.438-5H4a4 4 0 0 0-4 4v22z'%3E%3C/path%3E%3Cpath fill='%2355ACEE' d='M32.336 12h-6.562c-5.438 0-5.383 5-8.945 5h-9c-2.209 0-4.182 1.791-4.406 4l-.493 3.874L2.406 29l-.02-.002c-.116.607-.672.999-1.3.999c-.643 0-1.106-.507-1.074-1.144C.01 28.903 0 28.95 0 29a3.989 3.989 0 0 0 3.4 3.939c.177.038.371.061.6.061h26c2.209 0 4.182-1.791 4.406-4l1.523-13c.225-2.209-1.384-4-3.593-4z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.i-item{
+  font-size: small;
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 60 60' style='enable-background:new 0 0 60 60;' xml:space='preserve'%3E%3Cg%3E%3Cpath d='M0,0v60h60V0H0z M58,58H2V2h56V58z'/%3E%3Cpath d='M55,55V5H5v50H55z M31,53V31h22v22H31z M53,29H31V7h22V29z M7,7h22v46H7V7z'/%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+.i-layout {
+  font-size: small;
+  background-image: url("data:image/svg+xml,%3Csvg width='20px' height='20px' viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='var(--ci-primary-color, currentColor)' d='M68.983,382.642l171.35,98.928a32.082,32.082,0,0,0,32,0l171.352-98.929a32.093,32.093,0,0,0,16-27.713V157.071a32.092,32.092,0,0,0-16-27.713L272.334,30.429a32.086,32.086,0,0,0-32,0L68.983,129.358a32.09,32.09,0,0,0-16,27.713V354.929A32.09,32.09,0,0,0,68.983,382.642ZM272.333,67.38l155.351,89.691V334.449L272.333,246.642ZM256.282,274.327l157.155,88.828-157.1,90.7L99.179,363.125ZM84.983,157.071,240.333,67.38v179.2L84.983,334.39Z' class='ci-primary'/%3E%3C/svg%3E%0A");
+}
+
+.i-products {
+  font-size: small;
+  background-image: url("data:image/svg+xml,%3Csvg width='24px' height='24px' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cstyle%3E.cls-1,.cls-2%7Bfill:none;stroke:%23000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;%7D.cls-1%7Bfill-rule:evenodd;%7D%3C/style%3E%3C/defs%3E%3Cg id='ic-furniture-seat'%3E%3Cpath class='cls-1' d='M18,22V12a2,2,0,0,0-2-2H6'/%3E%3Cpath class='cls-1' d='M6,2,8.88,14.5a2,2,0,0,1,0,1L7,22'/%3E%3Cline class='cls-2' x1='18' y1='15' x2='9' y2='15'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.i-render {
+  font-size: 2em;
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cpath style='fill:%2353565C;' d='M428.522,111.304H317.217c-9.217,0-16.696-7.473-16.696-16.696V16.696C300.522,7.473,308,0,317.217,0 h111.304c9.217,0,16.696,7.473,16.696,16.696v77.913C445.217,103.831,437.739,111.304,428.522,111.304z'/%3E%3Cpath style='fill:%23E6EEFF;' d='M461.913,512H50.087C22.468,512,0,489.532,0,461.913V128c0-27.619,22.468-50.087,50.087-50.087 h411.826C489.532,77.913,512,100.381,512,128v333.913C512,489.532,489.532,512,461.913,512z'/%3E%3Cpath style='fill:%23DAE2F2;' d='M461.913,77.913H256V512h205.913C489.532,512,512,489.532,512,461.913V128 C512,100.381,489.532,77.913,461.913,77.913z'/%3E%3Cpath style='fill:%234DA6FF;' d='M0,178.087v233.739h512V178.087H0z'/%3E%3Crect x='256' y='178.087' style='fill:%234596E6;' width='256' height='233.739'/%3E%3Cpath style='fill:%23C4CAD9;' d='M256,445.217c-82.858,0-150.261-67.408-150.261-150.261S173.142,144.696,256,144.696 s150.261,67.408,150.261,150.261S338.858,445.217,256,445.217z'/%3E%3Cpath style='fill:%23B8BFCC;' d='M406.261,294.957c0-82.853-67.403-150.261-150.261-150.261v300.522 C338.858,445.217,406.261,377.809,406.261,294.957z'/%3E%3Cpath style='fill:%235C5F66;' d='M256,178.087c-64.445,0-116.87,52.429-116.87,116.87s52.424,116.87,116.87,116.87 s116.87-52.429,116.87-116.87S320.445,178.087,256,178.087z'/%3E%3Cpath style='fill:%2353565C;' d='M372.87,294.957c0-64.441-52.424-116.87-116.87-116.87v233.739 C320.445,411.826,372.87,359.397,372.87,294.957z'/%3E%3Cpath style='fill:%235AF1FF;' d='M256,378.435c-46.032,0-83.478-37.446-83.478-83.478s37.446-83.478,83.478-83.478 s83.478,37.446,83.478,83.478S302.032,378.435,256,378.435z'/%3E%3Ccircle style='fill:%23E55639;' cx='116.87' cy='144.696' r='16.696'/%3E%3Cpath style='fill:%2351DAE6;' d='M339.478,294.957c0-46.032-37.446-83.478-83.478-83.478v166.956 C302.032,378.435,339.478,340.989,339.478,294.957z'/%3E%3Cpath style='fill:%235C5F66;' d='M256,345.043c-27.619,0-50.087-22.468-50.087-50.087S228.381,244.87,256,244.87 s50.087,22.468,50.087,50.087S283.619,345.043,256,345.043z'/%3E%3Cpath style='fill:%2353565C;' d='M306.087,294.957c0-27.619-22.468-50.087-50.087-50.087v100.174 C283.619,345.043,306.087,322.576,306.087,294.957z'/%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+.i-help {
+  background-image: url("data:image/svg+xml,%3Csvg width='32px' height='32px' viewBox='0 0 32 32' id='icon' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:none;%7D%3C/style%3E%3C/defs%3E%3Ctitle%3Ehelp%3C/title%3E%3Cpath d='M16,2A14,14,0,1,0,30,16,14,14,0,0,0,16,2Zm0,26A12,12,0,1,1,28,16,12,12,0,0,1,16,28Z'/%3E%3Ccircle cx='16' cy='23.5' r='1.5'/%3E%3Cpath d='M17,8H15.5A4.49,4.49,0,0,0,11,12.5V13h2v-.5A2.5,2.5,0,0,1,15.5,10H17a2.5,2.5,0,0,1,0,5H15v4.5h2V17a4.5,4.5,0,0,0,0-9Z'/%3E%3Crect class='cls-1' width='32' height='32'/%3E%3C/svg%3E");
+}

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blueprint 3D - Example</title>
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/example.css" rel="stylesheet">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="css/bootstrap.offcanvas.css">
+
+    <script src="js/three.min.js"></script>
+    <script src="js/blueprint3d.js"></script>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    
+    <script src="js/items.js"></script>
+    <script type="module" src="js/example.js"></script>
+  </head>
+
+    <div class="container-fluid">
+      <div class="row row-offcanvas row-offcanvas-right" id="offcanvas" aria-labelledby="offCanvas">
+        <div class="col-xs-3 rightbar-offcanvas" id="rightbar" aria-labelledby="offcanvasRight">
+          <div id="rightside-menu">
+            <h1>RIGHT BAR</h1>
+            <a href="#" class="btn mt-auto btn-right" id="save" data-toggle="modal" data-target="#saveModal">
+              Save
+            </a>
+            <a href="#" class="btn mt-auto btn-right" id="render">
+              Render
+            </a>
+            <a href="#" class="btn mt-auto btn-right" id="quote">
+              Quote
+            </a>
+            <a href="https://www.designconsulting.com.au/" class="btn mt-auto btn-right" id="zoom-out">
+              Order
+            </a>
+        </div>
+      </div>
+      <div class="row main-row">
+        <!-- Left Column -->
+        <div class="col-xs-3 sidebar" aria-labelledby="offcanvasRight">
+          <!-- Main Navigation -->
+          <ul class="nav nav-tabs">
+            <li id="floorplan_tab"><a href="#">
+              Room
+              <div class="icon-container tabIcon">
+                <span class="i-item"></span>            
+              </div>
+            </a></li>
+            <li id="design_tab"><a href="#">
+              Layout
+              <div class="icon-container tabIcon">
+                <span class="i-layout"></span>            
+              </div>
+            </a></li>
+            <li id="items_tab"><a href="#">
+              Products
+              <div class="icon-container tabIcon">
+                <span class="i-products"></span>            
+              </div>
+            </a></li>
+          </ul>
+          <hr />
+
+
+          <!-- Context Menu -->
+          <div id="context-menu">
+            <div style="margin: 0 20px">
+              <span id="context-menu-name" class="lead"></span>
+              <br /><br />
+              <button class="btn btn-block btn-danger" id="context-menu-delete">
+                <span class="glyphicon glyphicon-trash"></span> 
+                Delete Item
+              </button>
+            <br />
+            <div class="panel panel-default">
+              <div class="panel-heading">Adjust Size</div>
+              <div class="panel-body" style="color: #333333">
+
+                <div class="form form-horizontal" class="lead">
+                  <div class="form-group">
+                    <label class="col-sm-5 control-label">
+                       Width
+                    </label>
+                    <div class="col-sm-6">
+                      <input type="number" class="form-control" id="item-width">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-5 control-label">
+                      Depth 
+                    </label>
+                    <div class="col-sm-6">
+                      <input type="number" class="form-control" id="item-depth">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-5 control-label">
+                      Height
+                    </label>
+                    <div class="col-sm-6">
+                      <input type="number" class="form-control" id="item-height">
+                    </div>
+                  </div>
+                </div>
+                <small><span class="text-muted">Measurements in Millimeters.</span></small>
+                <div class="panel-heading">Color Option</div>
+                <div>
+                  <div class="form-group">
+                    <label class="col-sm-5 control-label">
+                      Color
+                    </label>
+                    <div class="col-sm-3">
+                      <div>
+                        <input type="button" class="color-control" id="redColor">
+                      </div> 
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <label><input type="checkbox" id="fixed" /> Lock in place</label>
+            <br /><br />
+            </div>
+          </div>
+
+          <!-- Floor textures -->
+          <div id="floorTexturesDiv" style="display:none; padding: 0 20px">
+            <div class="panel panel-default">
+              <div class="panel-heading">Adjust Floor</div>
+              <div class="panel-body" style="color: #333333">
+
+                <div class="col-sm-6" style="padding: 3px">
+                  <a href="#" class="thumbnail texture-select-thumbnail" texture-url="rooms/textures/light_fine_wood.jpg" texture-stretch="false" texture-scale="300">
+                    <img alt="Thumbnail light fine wood" src="rooms/thumbnails/thumbnail_light_fine_wood.jpg" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wall Textures -->
+          <div id="wallTextures" style="display:none; padding: 0 20px">
+            <div class="panel panel-default">
+              <div class="panel-heading">Adjust Wall</div>
+              <div class="panel-body" style="color: #333333">
+                <div class="col-sm-6" style="padding: 3px">
+                  <a href="#" id="wallMarble" class="thumbnail texture-select-thumbnail" texture-url="rooms/textures/marbletiles.jpg" texture-stretch="false" texture-scale="300">
+                    <img alt="Thumbnail marbletiles" src="rooms/thumbnails/thumbnail_marbletiles.jpg" />
+                  </a>
+                </div>
+                <div class="col-sm-6" style="padding: 3px">
+                  <a href="#" class="thumbnail texture-select-thumbnail" texture-url="rooms/textures/wallmap_yellow.png" texture-stretch="true" texture-scale="">
+                    <img alt="Thumbnail wallmap yellow" src="rooms/thumbnails/thumbnail_wallmap_yellow.png" />
+                  </a>
+                </div>
+                <div class="col-sm-6" style="padding: 3px">
+                  <a href="#" class="thumbnail texture-select-thumbnail" texture-url="rooms/textures/light_brick.jpg" texture-stretch="false" texture-scale="100">
+                    <img alt="Thumbnail light brick" src="rooms/thumbnails/thumbnail_light_brick.jpg" />
+                  </a>
+                </div>
+              </div>
+              <div class="form-check allWall">
+                <input class="form-check-input" type="checkbox" name="allwall" id="allwallcheckbox">
+                <label class="form-check-label" for="flexCheckChecked">All Walls</label>
+              </div>
+              <div class="card">
+                <p>Pick the wall Color</p>
+                <div id="color-picker-1" class="mx-auto"></div>
+                <div>
+                  <input type="button" class="color-control" id="redColor">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col-xs-9 main" aria-labelledby="offcanvasRight">
+
+          <!-- 3D Viewer -->
+          <div id="viewer">
+
+            <div id="main-controls">
+              <a href="#" class="btn btn-default btn-sm" id="new">
+                <span class="tooltiptext">New File</span>
+                <div class="icon-container">
+                  <span class="i-new-file"></span>            
+                </div>
+              </a>
+              <a href="#" class="btn btn-default btn-sm" id="saveFile">
+                <span class="tooltiptext">Save</span>
+                <div class="icon-container">
+                  <span class="i-save-file"></span>
+                </div>
+              </a>
+              <a class="btn btn-default btn-sm btn-file">
+                <div class="icon-container">
+                  <span class="i-open-file"></span>
+                 </div>
+                <span class="tooltiptext">Open File</span>
+               <input type="file" class="hidden-input" id="loadFile">
+              </a>
+            </div>
+            <a href="#" class="btn btn-default btn-sm pull-right btnRender" id="render" data-toggle="modal" data-target="#saveModal">
+              <span class="tooltiptext">Render</span>
+              <div class="icon-container">
+                <span class="i-render"></span>
+              </div>
+            </a>
+            <a href="#" class="btn btn-default btn-sm pull-right btnRightBar" id="rightBar" data-toggle="offcanvas" data-bs-target="#offcanvasRight">
+              <span class="glyphicon glyphicon-arrow-right"></span>
+              <br>
+              <span class="glyphicon glyphicon-arrow-left"></span>
+            </a>
+
+            <div id="camera-controls">
+              <a href="#" class="btn btn-default bottom" id="zoom-out">
+                <span class="glyphicon glyphicon-zoom-out"></span>
+                <span class="tooltiptext">Zoom Out</span>
+              </a>
+              <!-- <a href="#" class="btn btn-default bottom" id="reset-view">
+                <span class="glyphicon glyphicon glyphicon-home"></span>
+              </a> -->
+              <a href="#" class="btn btn-default bottom" id="zoom-in">
+                <span class="glyphicon glyphicon-zoom-in"></span>
+                <span class="tooltiptext">Zoom In</span>
+              </a>
+              <a href="#" class="btn btn-default bottom" id="middleViewButton">
+                <span class="tooltiptext">Isometric View</span>
+                <div class="icon-container">
+                  <span class="i-house"></span>
+              </div>
+              </a>
+              <a href="#" class="btn btn-default bottom" id="3DButton">
+                <span class="tooltiptext">3D View</span>
+                <div class="icon-container">
+                  <span class="i-cube"></span>
+                </div>
+              </a>
+              <a href="#" class="btn btn-default bottom" id="2DButton">
+                <span class="tooltiptext">2D Top View</span>
+                <div class="icon-container">
+                  <span class="i-rectangle"></span>
+                </div>
+              </a>
+              
+              <span>&nbsp;</span>
+
+              <a class="btn btn-default" href="#" id="move-left" >
+                <span class="glyphicon glyphicon-arrow-left"></span>
+              </a>
+              <span class="btn-group-vertical">
+                <a class="btn btn-default" href="#" id="move-up">
+                  <span class="glyphicon glyphicon-arrow-up"></span>
+                </a>
+                <a class="btn btn-default" href="#" id="move-down">
+                  <span class="glyphicon glyphicon-arrow-down"></span>
+                </a>
+              </span>
+              <a class="btn btn-default" href="#" id="move-right" >
+                <span class="glyphicon glyphicon-arrow-right"></span>
+              </a>
+            </div>
+
+            <div id="loading-modal">
+              <h1>Loading...</h1>  
+            </div>
+          </div>
+
+          <!-- 2D Floorplanner -->
+          <div id="floorplanner">
+            <canvas id="floorplanner-canvas"></canvas>
+            <div id="floorplanner-controls">
+              
+              <!-- <button id="SquareShapeRoom" class="btn btn-sm btn-default">
+                <span class="glyphicon glyphicon-pushpin"></span>
+                Sqare Shape Room
+              </button> -->
+              <button class="btn btn-sm btn-default btnRoom" data-toggle="modal" data-target="#roomModal">
+                <span class="glyphicon glyphicon-pushpin"></span>
+                Change Room Shape
+              </button>
+              <button id="move" class="btn btn-sm btn-default btnRoom">
+                <span class="glyphicon glyphicon-move"></span>
+                Move Walls
+              </button>
+              <button id="draw" class="btn btn-sm btn-default btnRoom">
+                <span class="glyphicon glyphicon-pencil"></span>
+                Draw Walls
+              </button>
+              <button id="delete" class="btn btn-sm btn-default btnRoom">
+                <span class="glyphicon glyphicon-remove"></span>
+                Delete Walls
+              </button>
+              <span class="pull-right">
+                <button class="btn btn-primary btn-sm btnRoom" id="update-floorplan">Done &raquo;</button>
+              </span>
+
+            </div>
+            <div id="draw-walls-hint">
+              Press the "Esc" key to stop drawing walls
+            </div>
+
+          <!-- Modal -->
+
+            <!-- Room Modal -->
+            <div class="modal fade" id="roomModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button> -->
+                  </div>
+                  <div class="modal-body">
+
+                    <button id="SquareShapeRoom" class="btn btn-sm btn-default btnRoom">
+                      <span class="glyphicon glyphicon-pushpin"></span>
+                      Sqare Shape Room
+                    </button>
+
+                    <button id="LShapeRoom" class="btn btn-sm btn-default btnRoom">
+                      <span class="glyphicon glyphicon-pushpin"></span>
+                      L Shape Room
+                    </button>
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Add Items -->
+          <div id="add-items">
+            <div class="row" id="items-wrapper">
+
+              <!-- Items added here by items.js -->
+            </div>
+          </div>
+        </div>
+        <!-- End Right Column -->
+        <!-- RightBar -->
+
+          <!-- Save Modal -->
+          <div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title w-100 font-weight-bold">Save</h4>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-body">
+                  <div class="d-flex flex-column text-center">
+                    <form>
+                      <div class="form-group">
+                        <input type="email" class="form-control" id="email1"placeholder="Your name..."">
+                      </div>
+                      <div class="form-group">
+                        <input type="password" class="form-control" id="password1" placeholder="Your email...">
+                      </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  <button type="button" class="btn btn-primary">Save</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          
+         
+  </div>
+    
+  </body>
+</html>
