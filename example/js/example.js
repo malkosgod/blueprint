@@ -35,11 +35,10 @@ var CameraButtons = function(blueprint3d) {
     $("body").toggleClass("off-canvas-active");
     event.preventDefault();
     $("#allwallcheckbox").click(allwall);
-
-    $("#redColor").click(allwallClicked);
+    
 
     });
-
+   
 
     $(document).on('mouseup touchend', function(event) {
       var offCanvas = $('.off-canvas')
@@ -167,7 +166,8 @@ var ContextMenu = function(blueprint3d) {
 
   function itemSelected(item) {
     selectedItem = item;
-
+    var itemColor = selectedItem.material.materials[0].emissive;
+    
     $("#context-menu-name").text(item.metadata.itemName);
 
     $("#item-width").val(cmToMm(selectedItem.getWidth()).toFixed(0));
@@ -176,7 +176,18 @@ var ContextMenu = function(blueprint3d) {
     $("#context-menu").show();
 
     $("#fixed").prop('checked', item.fixed);
+
   }
+  
+  $("#itemColorButton").click(function() {
+    var r = 255;
+    var g = 0;
+    var b = 0;
+    itemColor.setRGB(r, g, b);
+    console.log(itemColor);
+
+  })
+
 
   function resize() {
     selectedItem.resize(
@@ -417,22 +428,16 @@ var TextureSelector = function (blueprint3d, sideMenu) {
       var textureScale = parseInt($(this).attr("texture-scale"));
       currentTarget.setTexture(textureUrl, textureStretch, textureScale);
       e.preventDefault();
-      /* if ($('input.checkbox_check').is(':checked')) {
-        var wallTexture1 = textureUrl;
-        three.allwall.fire(wallTexture1);
-      } */
-    });
-    
-    
-  }
-
-
+    });}
 
   function initColorSelector() {
-      var r = 100;
-      var g = 100;
-      var b = 100;
+    $(".color-control").click(function() {
+      var r = 255;
+      var g = 0;
+      var b = 0;
       currentColor.setRGB(r, g, b);
+    });
+      
   }
 
   function init() {
@@ -443,12 +448,14 @@ var TextureSelector = function (blueprint3d, sideMenu) {
     three.nothingClicked.add(reset);
     sideMenu.stateChangeCallbacks.add(reset);
     initTextureSelectors();
+    initColorSelector();
   }
 
   function allwallClicked (wallColor) {
     currentColor = wallColor;
     $("#floorTexturesDiv").hide();  
     $("#wallTextures").show();
+    console.log(currentTarget, currentColor);
   }
 
 
@@ -457,7 +464,7 @@ var TextureSelector = function (blueprint3d, sideMenu) {
     currentTarget = halfEdge;
     $("#floorTexturesDiv").hide();  
     $("#wallTextures").show(); 
-    console.log(currentTarget, currentColor);
+    
   }
 
   function floorClicked(room) {
